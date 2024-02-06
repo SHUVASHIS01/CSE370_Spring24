@@ -1,0 +1,148 @@
+Answer-1: 
+
++--------------------------+
+| Database                 |
++--------------------------+
+| information_schema       |
+| mohammad_tawfique_hassan |
+| mysql                    |
+| performance_schema       |
+| phpmyadmin               |
+| test                     |
++--------------------------+
+
+
+Answer-2: 
+
+Query OK, 1 row affected
++--------------------------+
+| Database                 |
++--------------------------+
+| information_schema       |
+| mohammad_tawfique_hassan |
+| mysql                    |
+| performance_schema       |
+| phpmyadmin               |
+| shuvashis_basak          |
+| test                     |
++--------------------------+
+
+Answer-3:
+Database changed
+
+Answer-4:
+Query OK, 0 rows affected (0.038 sec)
+
+Answer-5:
++---------------------------+
+| Tables_in_shuvashis_basak |
++---------------------------+
+| lab_grades                |
++---------------------------+
+1 row in set (0.000 sec)
+
+Answer-6:
++-----------------+--------------+------+-----+---------+-------+
+| Field           | Type         | Null | Key | Default | Extra |
++-----------------+--------------+------+-----+---------+-------+
+| ID              | char(4)      | YES  |     | NULL    |       |
+| Name            | varchar(30)  | YES  |     | NULL    |       |
+| major           | char(3)      | YES  |     | NULL    |       |
+| Days_present    | int(11)      | YES  |     | NULL    |       |
+| project_marks   | double       | YES  |     | NULL    |       |
+| cgpa            | decimal(3,2) | YES  |     | NULL    |       |
+| submission_date | date         | YES  |     | NULL    |       |
+| section         | char(1)      | YES  |     | NULL    |       |
++-----------------+--------------+------+-----+---------+-------+
+
+Answer-7:
+Query OK, 1 row affected (0.052 sec)
+
+Answer-8:
++------+------+-------+--------------+---------------+------+-----------------+---------+
+| ID   | Name | major | Days_present | project_marks | cgpa | submission_date | section |
++------+------+-------+--------------+---------------+------+-----------------+---------+
+| s001 | Abir | CS    |           10 |          18.5 | 3.91 | 2018-09-15      | 1       |
++------+------+-------+--------------+---------------+------+-----------------+---------+
+
+Answer-9:
+
++------+---------+-------+---------+--------------+---------------+------+-----------------+
+| ID   | Name    | major | section | Days_present | project_marks | cgpa | submission_date |
++------+---------+-------+---------+--------------+---------------+------+-----------------+
+| s001 | Abir    | CS    | 1       |           10 |          18.5 | 3.91 | 2018-09-15      |
+| s002 | Nafis   | CSE   | 1       |           12 |            20 | 3.86 | 2018-08-15      |
+| s003 | Tasneem | CS    | 1       |            8 |            18 | 3.57 | 2018-09-18      |
+| s004 | Nahid   | ECE   | 2       |            7 |          16.5 | 3.25 | 2018-08-20      |
+| s005 | Arafat  | CS    | 2       |           11 |            20 | 4.00 | 2018-09-13      |
+| s006 | Tasneem | CSE   | 1       |           12 |          17.5 | 3.70 | 2018-08-15      |
+| s007 | Muhtadi | ECE   | 1       |           10 |            19 | 3.67 | 2018-09-16      |
+| S008 | Farhana | CSE   | 2       |            6 |            15 | 2.67 | 2018-08-16      |
+| s009 | Naima   | CSE   | 2       |           12 |            20 | 3.70 | 2018-08-14      |
++------+---------+-------+---------+--------------+---------------+------+-----------------+
+9 rows in set (0.001 sec)
+
+Answer-10:
+
+Query OK, 0 rows affected (0.023 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+Answer-11:
+
+Query OK, 9 rows affected (0.120 sec)
+Records: 9  Duplicates: 0  Warnings: 0
+
+Answer-12:
+
+Query OK, 0 rows affected (0.023 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+Answer-13:
+
+Answer-14:
++------+---------+-------+---------+--------------+---------------+------+-----------------+
+| ID   | Name    | major | section | Days_present | project_marks | cgpa | submission_date |
++------+---------+-------+---------+--------------+---------------+------+-----------------+
+| s001 | Abir    | CS    | 1       |           10 |          18.5 | 3.91 | 2018-09-15      |
+| s002 | Nafis   | CSE   | 1       |           12 |            20 | 3.86 | 2018-08-15      |
+| s003 | Tasneem | CS    | 1       |            8 |            18 | 3.57 | 2018-09-18      |
+| s004 | Nahid   | ECE   | 2       |            7 |          16.5 | 3.25 | 2018-08-20      |
+| s005 | Arafat  | CSE   | 2       |           11 |            20 | 4.00 | 2018-09-13      |
+| s006 | Tasneem | CSE   | 1       |           12 |          17.5 | 3.70 | 2018-08-15      |
+| s007 | Muhtadi | ECE   | 1       |           10 |            19 | 3.67 | 2018-09-16      |
+| S008 | Farhana | CSE   | 2       |            6 |            15 | 2.67 | 2018-08-16      |
+| s009 | Naima   | CSE   | 2       |           12 |            20 | 3.70 | 2018-08-14      |
++------+---------+-------+---------+--------------+---------------+------+-----------------+
+9 rows in set (0.000 sec)
+
+
+Answer-15:
++------+---------+-------+---------+--------------+---------------+------+-----------------+
+| ID   | Name    | major | section | Days_present | project_marks | cgpa | submission_date |
++------+---------+-------+---------+--------------+---------------+------+-----------------+
+| s001 | Abir    | CS    | 1       |           10 |          18.5 | 3.91 | 2018-09-15      |
+| s002 | Nafis   | CSE   | 1       |           12 |            20 | 3.86 | 2018-08-15      |
+| s003 | Tasneem | CS    | 1       |            8 |            18 | 3.57 | 2018-09-18      |
+| s004 | Naheed  | ECE   | 2       |            7 |            16 | 3.25 | 2018-08-20      |
+| s005 | Arafat  | CSE   | 2       |           11 |            20 | 4.00 | 2018-09-13      |
+| s006 | Tasneem | CSE   | 1       |           12 |          17.5 | 3.70 | 2018-08-15      |
+| s007 | Muhtadi | ECE   | 1       |           10 |            19 | 3.67 | 2018-09-16      |
+| S008 | Farhana | CSE   | 2       |            6 |            15 | 2.67 | 2018-08-16      |
+| s009 | Naima   | CSE   | 2       |           12 |            20 | 3.70 | 2018-08-14      |
++------+---------+-------+---------+--------------+---------------+------+-----------------+
+9 rows in set (0.000 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
