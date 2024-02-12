@@ -1,0 +1,239 @@
+1.  select min(cgpa) from lab_grades;
++-----------+
+| min(cgpa) |
++-----------+
+|      3.25 |
++-----------+
+
+2.  select min(project_marks) from lab_grades;
+
++--------------------+
+| min(project_marks) |
++--------------------+
+|               16.5 |
++--------------------+
+
+3.  select count(*) as total_student, avg(project_marks) as average_project_marks from Lab_grades; (*) diye mainly row koyta bujhay
+
++---------------+-----------------------+
+| total_student | average_project_marks |
++---------------+-----------------------+
+|             7 |                  18.5 |
++---------------+-----------------------+
+
+4.  select sum(days_present) from lab_grades;
+
++-------------------+
+| sum(days_present) |
++-------------------+
+|                70 |
++-------------------+
+5.  select major, min(cgpa) as min_cgpa, max(cgpa) as max_cgpa from lab_grades major;
+
+
++-------+----------+----------+
+| major | min_cgpa | max_cgpa |
++-------+----------+----------+
+| CS    |     3.25 |     4.00 |
++-------+----------+----------+
+
+6. select major, min(cgpa) as min_cgpa, max(cgpa) as max_cgpa from lab_grades group by major; (group by bolte bujhay joto differnt majors, toto gulo row)
+
++-------+----------+----------+
+| major | min_cgpa | max_cgpa |
++-------+----------+----------+
+| CS    |     3.57 |     4.00 |
+| CSE   |     3.70 |     3.86 |
+| ECE   |     3.25 |     3.67 |
++-------+----------+----------+
+
+7. select max(submission_date) as Last_submission_date from lab_grades;
+
++----------------------+
+| Last_submission_date |
++----------------------+
+| 2018-09-18           |
++----------------------+
+
+
+8.  select major, count(*) as total_number_of_students_for_each_major from lab_grades group by major;
+
++-------+-----------------------------------------+
+| major | total_number_of_students_for_each_major |
++-------+-----------------------------------------+
+| CS    |                                       3 |
+| CSE   |                                       2 |
+| ECE   |                                       2 |
++-------+-----------------------------------------+
+
+
+9. select major, count(*) from lab_grades group by major;
+
++-------+----------+
+| major | count(*) |
++-------+----------+
+| CS    |        3 |
+| CSE   |        2 |
+| ECE   |        2 |
++-------+----------+
+
+10.  select major,submission_date, count(*) from lab_grades group by submission_date;
+
++-------+-----------------+----------+
+| major | submission_date | count(*) |
++-------+-----------------+----------+
+| CSE   | 2018-08-15      |        2 |
+| ECE   | 2018-08-20      |        1 |
+| CS    | 2018-09-13      |        1 |
+| CS    | 2018-09-15      |        1 |
+| ECE   | 2018-09-16      |        1 |
+| CS    | 2018-09-18      |        1 |
++-------+-----------------+----------+
+
+
+11.  select major, min(cgpa) as mincgpa, max(cgpa) as maxcgpa from lab_grades group by major having count(*)>2; 9group by thakle having use korte hobe)
+
++-------+---------+---------+
+| major | mincgpa | maxcgpa |
++-------+---------+---------+
+| CS    |    3.57 |    4.00 |
++-------+---------+---------+
+
+12. select major, min(cgpa) as mincgpa, max(cgpa) as maxcgpa from lab_grades where submission_date<='2018-09-1' group by major;
+
++-------+---------+---------+
+| major | mincgpa | maxcgpa |
++-------+---------+---------+
+| CSE   |    3.70 |    3.86 |
+| ECE   |    3.25 |    3.25 |
++-------+---------+---------+
+
+13.  select name from lab_grades where project_marks=(select max(project_marks) as max_project_marks from lab_grades);
+
++--------+
+| name   |
++--------+
+| Nafis  |
+| Arafat |
++--------+
+
+14. select name, project_marks, major from lab_grades where project_marks=(select max(project_marks) as max_project_marks from lab_grades);
+
++--------+---------------+-------+
+| name   | project_marks | major |
++--------+---------------+-------+
+| Nafis  |            20 | CSE   |
+| Arafat |            20 | CS    |
++--------+---------------+-------+
+
+15.  select * from lab_grades where major='cse' and cgpa> any(select cgpa from lab_grades where major='cs');
+
++--------+---------+-------+---------+--------------+---------------+------+-----------------+
+| std_id | name    | major | section | days_present | project_marks | cgpa | submission_date |
++--------+---------+-------+---------+--------------+---------------+------+-----------------+
+| s002   | Nafis   | CSE   | 1       |           12 |            20 | 3.86 | 2018-08-15      |
+| s006   | Tasneem | CSE   | 1       |           12 |          17.5 | 3.70 | 2018-08-15      |
++--------+---------+-------+---------+--------------+---------------+------+-----------------+
+
+
+16.  select * from lab_grades where major='cse' and cgpa> all(select cgpa from lab_grades where major='cs');
+
+Empty set (0.000 sec)
+
+
+17. select * from lab_grades where major='cs' and cgpa> all(select cgpa from lab_grades where major='cse');
+
+
++--------+--------+-------+---------+--------------+---------------+------+-----------------+
+| std_id | name   | major | section | days_present | project_marks | cgpa | submission_date |
++--------+--------+-------+---------+--------------+---------------+------+-----------------+
+| s001   | Abir   | CS    | 1       |           10 |          18.5 | 3.91 | 2018-09-15      |
+| s005   | Arafat | CS    | 2       |           11 |            20 | 4.00 | 2018-09-13      |
++--------+--------+-------+---------+--------------+---------------+------+-----------------+
+
+
+18. select * from lab_grades where major='cse' and cgpa> any(select cgpa from lab_grades where major='cse');
+
++--------+-------+-------+---------+--------------+---------------+------+-----------------+
+| std_id | name  | major | section | days_present | project_marks | cgpa | submission_date |
++--------+-------+-------+---------+--------------+---------------+------+-----------------+
+| s002   | Nafis | CSE   | 1       |           12 |            20 | 3.86 | 2018-08-15      |
++--------+-------+-------+---------+--------------+---------------+------+-----------------+
+
+19. select * from lab_grades where major='cs' and cgpa> any(select cgpa from lab_grades where major='cs');
+
+
++--------+--------+-------+---------+--------------+---------------+------+-----------------+
+| std_id | name   | major | section | days_present | project_marks | cgpa | submission_date |
++--------+--------+-------+---------+--------------+---------------+------+-----------------+
+| s001   | Abir   | CS    | 1       |           10 |          18.5 | 3.91 | 2018-09-15      |
+| s005   | Arafat | CS    | 2       |           11 |            20 | 4.00 | 2018-09-13      |
++--------+--------+-------+---------+--------------+---------------+------+-----------------+
+
+
+20. distinct == group by
+
+select distinct major from lab_grades L1 where exists (select * from Lab_grades L2 where L2.major=L1.major and L2.cgpa<3.7);
+
+
++-------+
+| major |
++-------+
+| CS    |
+| ECE   |
++-------+
+
+21. select name from lab_grades l1 where not exists (select * from lab_grades l2 where l2.std_id!=l1.std_id and l2.project_marks>l1.project_marks);
+
++--------+
+| name   |
++--------+
+| Nafis  |
+| Arafat |
++--------+
+
+
+22.  select name from lab_grades l1 where not exists (select * from lab_grades l2 where l2.std_id!=l1.std_id and l2.project_marks>=l1.project_marks);
+
+Empty set (0.000 sec)
+
+
+23. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
